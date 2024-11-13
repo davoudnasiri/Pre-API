@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchData } from "@/store/slices/dataSlice";
 import { RootState, AppDispatch } from "@/store/store";
+import Skeleton from "@/ui/Skeleton";
 
 export default function ClientForm() {
   const dispatch = useDispatch<AppDispatch>();
@@ -19,7 +20,7 @@ export default function ClientForm() {
     <div className="border-y border-[#333] py-10 border-dashed">
       <h1>Client-Side Fetching</h1>
       {loading ? (
-        <p>Loading...</p>
+        <Skeleton row={3} />
       ) : error ? (
         <p>Error: {error}</p>
       ) : (

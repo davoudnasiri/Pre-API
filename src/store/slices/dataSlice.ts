@@ -1,11 +1,5 @@
 import { createSlice, PayloadAction, createAsyncThunk } from "@reduxjs/toolkit";
 
-interface DataState {
-  items: Array<{ id: number; title: string }>;
-  loading: boolean;
-  error: string | null;
-}
-
 export interface Item {
   id: number;
   title: string;
@@ -13,9 +7,15 @@ export interface Item {
   completed: boolean;
 }
 
+interface DataState {
+  items: Item[];
+  loading: boolean;
+  error: string | null;
+}
+
 const initialState: DataState = {
   items: [],
-  loading: false,
+  loading: true, // for afew moments after refresh
   error: null,
 };
 

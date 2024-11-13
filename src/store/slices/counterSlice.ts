@@ -24,6 +24,9 @@ const counterSlice = createSlice({
     decrementByAmount: (state, action: PayloadAction<number>) => {
       state.value -= action.payload;
     },
+    reset: (state) => {
+      state.value = 0;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -47,6 +50,11 @@ export const incrementAsync = createAsyncThunk(
   }
 );
 
-export const { increment, decrement, incrementByAmount, decrementByAmount } =
-  counterSlice.actions;
+export const {
+  increment,
+  decrement,
+  incrementByAmount,
+  decrementByAmount,
+  reset,
+} = counterSlice.actions;
 export default counterSlice.reducer;
